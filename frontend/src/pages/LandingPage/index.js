@@ -1,10 +1,11 @@
 import React from "react";
+import Navbar from "../../components/Navbar";
 
 const LandingPage = () => {
   return (
     <>
-      <p>Hey pls work</p>
-      <p>ansjabjsbaj</p>
+      <Navbar/>
+      <h1>Programa de Excelencia Vértice</h1>      
     </>
   );
 };
