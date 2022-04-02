@@ -1,34 +1,33 @@
 @import "../../_variables.scss";
 
 .google-login-btn {
-  background: $bright-pink;
-  border-radius: 4px;
+  background: $light-black;
   border: none;
-  color: #ffffff;
+  color: $off-white;
   font-family: $default-font;
   font-size: 16px;
-  margin: 0 16px;
+  height: 72px;
+  margin-left: 16px;
   padding: 10px 22px;
-  width: 112px;
+  width: 128px;
   transition: all 0.2s ease-in-out;
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: $light-pink;
-    color: #000000;
+    background: $bright-pink;
   }
 }
 
 .google-logout-btn {
   background: $light-black;
-  border-radius: 4px;
   border: none;
   color: #ffffff;
   font-family: $default-font;
   font-size: 16px;
-  margin: 0 16px;
-  padding: 10px 24px;
-  width: 112px;
+    height: 72px;
+ margin-left: 16px;
+  padding: 10px 22px;
+  width: 128px;
   transition: all 0.2s ease-in-out;
 
   &:hover {
@@ -38,7 +37,7 @@
   }
 }
 
-
+// CHECAR ESTO
 @media (max-width: $breakpoint-half-screen) {
   .google-login-btn {
     display: flex;

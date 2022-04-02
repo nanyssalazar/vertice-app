@@ -1,0 +1,25 @@
+@import "../../_variables.scss";
+
+.landing-content {
+  height: 90vh;
+  background-image: url("../../images/pink-background.png");
+  background-size: 200%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    color: $off-white;
+    font-weight: 400;
+    font-size: 112px;
+    text-shadow: 8px 8px 64px $light-black;
+    width: 50%;
+    margin: 0;
+  }
+
+  &__promocional {
+      width: 40%;
+      box-shadow: 8px 8px 72px $light-black;
+      
+  }
+}

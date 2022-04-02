@@ -1,10 +1,14 @@
 import React from "react";
-import "../Navbar/Navbar.scss";
 import logo from "../../images/logo.png";
 import { FaBars } from "react-icons/fa";
 import LoginButton from "../LoginButton";
+import "../Navbar/Navbar.scss";
+
 // FIX NAVBAR
 const Navbar = ({ toggle }) => {
+  const currentLocation = window.location.pathname;
+  console.log(currentLocation);
+
   return (
     <>
       <nav className="navbar">
@@ -18,17 +22,25 @@ const Navbar = ({ toggle }) => {
 
         <FaBars className="navbar__bars" onClick={toggle} />
         <ul className="navbar__links">
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/eventos">Eventos</a>
-          </li>
-          <li>
-            <a href="/perfil">Mi perfil</a>
-          </li>
+          {currentLocation === "/" ? (
+            <>
+              <li>
+                <a href="/aplicar">Aplicar</a>
+              </li>
+            </>
+          ) : (
+            <>
+              <FaBars className="navbar__bars" onClick={toggle} />
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a href="/eventos">Eventos</a>
+              </li>
+            </>
+          )}
+          <LoginButton />
         </ul>
-        <LoginButton/>
       </nav>
     </>
   );
