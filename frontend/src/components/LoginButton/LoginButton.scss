@@ -43,8 +43,10 @@
     display: flex;
     background: none;
     font-size: 20px;
-    margin: 8px 16px;
-    width: 128px;
+    margin: 0;
+    width: fit-content;
+    padding: 0;
+
 
     &:hover {
       background: none;
