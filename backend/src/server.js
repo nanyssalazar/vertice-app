@@ -14,6 +14,7 @@ try {
     { useNewUrlParser: true, useUnifiedTopology: true }
   );
   console.log('CONNECTION!');
+  
 } catch (error) {
   console.log(error);
 }

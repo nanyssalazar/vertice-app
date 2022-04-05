@@ -8,12 +8,12 @@ const EventSchema = new mongoose.Schema({
   availability: Number,
   img: String,
   generation: Array,
-  committee: Array,
+  committee: String,
   modality: String,
   place: String,
-  type: String,
+  eventType: String,
   attendees: Array,
-  value: Number,
+  points: Number,
   semester: String,
 });
 

@@ -21,9 +21,9 @@ module.exports = {
       committee,
       modality,
       place,
-      type,
+      eventType,
       attendees,
-      value,
+      points,
       semester,
     } = req.body;
     console.log(req);
@@ -38,9 +38,9 @@ module.exports = {
       committee,
       modality,
       place,
-      type,
+      eventType,
       attendees,
-      value,
+      points,
       semester,
     });
     console.log(event);
