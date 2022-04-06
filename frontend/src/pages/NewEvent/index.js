@@ -72,8 +72,6 @@ const NewEvent = () => {
       attendees: [],
     });
     console.log(response.data);
-    //history.push("/);
-    // const response = await api.post("/", {});
   };
 
   return (

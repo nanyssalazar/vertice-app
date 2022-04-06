@@ -63,6 +63,8 @@ module.exports = {
             message: 'Alumno es miembro. Foto no se actualizo',
           });
         }
+      } else {
+        return res.json({message: "Alumno es miembro."})
       }
     }
   },
