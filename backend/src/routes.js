@@ -9,6 +9,7 @@ routes.get('/', (req, res) => {
 
 routes.get('/members', MembersController.getAllMembers);
 routes.post('/members', MembersController.createMember);
+routes.put('/members/:email', MembersController.updateProfilePicture);
 
 routes.get('/events', EventsController.getAllEvents);
 routes.post('/events', EventsController.createEvent);
