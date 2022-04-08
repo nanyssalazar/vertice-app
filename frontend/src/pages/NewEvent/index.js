@@ -10,7 +10,7 @@ const NewEvent = () => {
   const [img, setImg] = useState('');
   const [date, setDate] = useState('');
   const [availability, setAvailability] = useState(15);
-  const [committee, setComittee] = useState('');
+  const [committee, setCommittee] = useState('');
   const [modality, setModality] = useState('');
   const [place, setPlace] = useState('');
   const [eventType, setEventType] = useState('');
@@ -26,6 +26,15 @@ const NewEvent = () => {
     );
     let selectedOptions = value;
     setGeneration(selectedOptions);
+  };
+
+  const handleCommitteeOptions = (event) => {
+    let value = Array.from(
+      event.target.selectedOptions,
+      (option) => option.value
+    );
+    let selectedOptions = value;
+    setCommittee(selectedOptions);
   };
 
   const generateURL = (img) => {
@@ -146,10 +155,10 @@ const NewEvent = () => {
           <label htmlFor='comittee'>Comité</label>
           <select
             name='comittee'
-            onChange={(event) => setComittee(event.target.value)}
+            onChange={(event) => handleCommitteeOptions(event)}
+            multiple
             required
           >
-            <option value=''>Seleccionar opción...</option>
             <option value='Comunicación'>Comunicación</option>
             <option value='Formación'>Formación</option>
             <option value='Relaciones'>Relaciones</option>

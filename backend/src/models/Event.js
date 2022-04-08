@@ -8,7 +8,7 @@ const EventSchema = new mongoose.Schema({
   availability: Number,
   img: String,
   generation: Array,
-  committee: String,
+  committee: Array,
   modality: String,
   place: String,
   eventType: String,
