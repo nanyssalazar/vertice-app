@@ -28,7 +28,8 @@ const Navbar = ({ toggle }) => {
                 <a href="/aplicar">Aplicar</a>
               </li>
             </>
-          ) : (
+          ) : currentLocation === "/new-event" ||
+            currentLocation === "/dashboard-eventos" ? (
             <>
               <FaBars className="navbar__bars" onClick={toggle} />
               <li>
@@ -36,6 +37,17 @@ const Navbar = ({ toggle }) => {
               </li>
               <li>
                 <a href="/eventos">Eventos</a>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a href="/perfil">Mi Perfil</a>
+              </li><li>
+                <a href="/asistencias">Asistencias</a>
               </li>
             </>
           )}

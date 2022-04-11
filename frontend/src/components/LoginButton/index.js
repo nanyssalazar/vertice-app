@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import api from "../../services/api";
 // import api from "../../services/api.js";
@@ -7,9 +7,9 @@ import "../LoginButton/LoginButton.scss";
 
 const LoginButton = () => {
   const [isLoggedIn, setIsLogedIn] = useState(false);
-  const currentLocation = window.location.pathname;
   const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
-
+  const navigate = useNavigate()
+;
   const onLoginSuccess = async (res) => {
     localStorage.setItem("email", res.profileObj.email);
     localStorage.setItem(
@@ -37,8 +37,8 @@ const LoginButton = () => {
     }
     
     setIsLogedIn(true);
-
     console.log("[Login Success] currentUser:", res.profileObj);
+    navigate("/mi-perfil")
   };
 
   const onLoginFailure = (res) => {
@@ -52,7 +52,7 @@ const LoginButton = () => {
     localStorage.removeItem("nombre");
     localStorage.removeItem("imageUrl");
     alert("Has cerrado sesión.");
-    // history.push("/");
+    navigate("/");
   };
 
   return (
@@ -84,7 +84,7 @@ const LoginButton = () => {
             </button>
           )}
           buttonText="Login"
-          isSignedIn={false}
+          isSignedIn={true}
           onSuccess={onLoginSuccess}
           onFailure={onLoginFailure}
           cookiePolicy={"single_host_origin"}
