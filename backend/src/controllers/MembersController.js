@@ -34,14 +34,15 @@ module.exports = {
     console.log(member);
     return res.json(member);
   },
-  async getUserById(req, res) {
-    const { userId } = req.params;
-    console.log(userId);
-    const user = await User.findById(userId);
-    if (user) {
-      return res.json(user);
+  async getMemberById(req, res) {
+    //const { memberId } = req.params.id;
+    //console.log(memberId);
+    const member = await Member.findById(req.params.id);
+    console.log(member);
+    if (member) {
+      return res.json(member);
     } else {
-      return res.json({ message: 'User not found.' });
+      return res.json({ message: 'Member not found.' });
     }
   },
   async updateProfilePicture(req, res) {
@@ -64,7 +65,7 @@ module.exports = {
           });
         }
       } else {
-        return res.json({message: "Alumno es miembro."})
+        return res.json({ message: 'Alumno es miembro.' });
       }
     }
   },
