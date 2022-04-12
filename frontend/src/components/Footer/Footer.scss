@@ -1,0 +1,60 @@
+@import "../../variables";
+
+.footer {
+  background-color: $light-black;
+  color: $off-white;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 32px;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding: 8px 0;
+
+      a {
+        color: $off-white;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+  img {
+    width: 256px;
+    height: 144px;
+  }
+
+  @media screen and (max-width: $breakpoint-ipad-screen) {
+    img {
+      width: 224px;
+      height: 128px;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-phone-screen) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    img {
+      padding: 24px 0 16px;
+      width: 200px;
+      height: 96px;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-smaller-phone) {
+    font-size: 14px;
+
+    img {
+      width: 184px;
+      height: 88px;
+    }
+  }
+}

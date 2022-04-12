@@ -1,0 +1,73 @@
+@import "../../_variables.scss";
+
+.navbar {
+  background: $off-white;
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  align-items: center;
+  // padding: 0 32px;
+  &__logo {
+    img {
+      width: 152px;
+      margin-left: 32px;
+      @media screen and (max-width: $breakpoint-phone-screen) {
+        margin-left: 16px;
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    font-family: $default-font;
+    font-size: $default-font-size;
+    font-weight: 500;
+    padding: 0;
+    width: fit-content;
+
+    a {
+      color: $light-black;
+      display: flex;
+      text-decoration: none;
+      padding: 0 24px;
+      height: 100%;
+      cursor: pointer;
+
+      &:hover {
+        color: $bright-pink;
+      }
+    }
+    @media screen and (max-width: $breakpoint-half-screen) {
+      display: none;
+    }
+  }
+
+  .navbar__bars {
+    display: none;
+    color: $light-black;
+    margin-right: 32px;
+
+    @media screen and (max-width: $breakpoint-half-screen) {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(-100%, 75%);
+      font-size: 28px;
+      cursor: pointer;
+    }
+    @media screen and (max-width: $breakpoint-phone-screen) {
+      margin-right: 0;
+    }
+    &:hover {
+      color: $bright-pink;
+      transition: 0.2s ease-in-out;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+@import "../../_variables.scss";
+
+.landing-content {
+  height: 72vh;
+  background-image: url("../../images/pink-background.png");
+  background-size: 200%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 80px;
+
+  h1 {
+    color: $off-white;
+    font-weight: 400;
+    font-size: 104px;
+    line-height: 1.2;
+    text-shadow: 8px 8px 64px $light-black;
+    width: 50%;
+    margin: 0;
+  }
+
+  &__promocional {
+    width: 36%;
+    box-shadow: 8px 8px 72px $light-black;
+  }
+
+  &__carrousel {
+    background-color: $light-pink;
+    display: grid;
+    position: absolute;
+    left: 40%;
+    top: 60%;
+    width: 44%;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 16px;
+    padding: 16px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-ipad-screen) {
+    height: 56vh;
+    align-items: center;
+    padding-top: 0;
+    h1 {
+      font-size: 88px;
+      text-align: center;
+      width: 80%;
+    }
+
+    &__carrousel {
+      grid-template-columns: repeat(3, 1fr);
+      position: relative;
+      width: 100%;
+      left: 0;
+      padding: 32px 0;
+      justify-items: center;
+      column-gap: 0;
+
+      img {
+        width: 80%;
+        &:nth-child(4) {
+          display: none;
+        }
+      }
+    }
+    &__promocional {
+      display: none;
+    }
+  }
+    @media screen and (max-width: $breakpoint-half-screen) {
+      height: 72vh;
+    }
+
+     @media screen and (max-width: $breakpoint-phone-screen) {
+      height: 50vh;
+
+      h1 {
+        font-size: 56px;
+      }
+    }
+}

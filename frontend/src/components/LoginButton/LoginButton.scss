@@ -1,0 +1,78 @@
+@import "../../_variables.scss";
+
+.google-login-btn {
+  background: $light-black;
+  border: none;
+  color: $off-white;
+  font-family: $default-font;
+  font-size: 16px;
+  height: 72px;
+  margin-left: 16px;
+  padding: 10px 22px;
+  width: 128px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: $bright-pink;
+  }
+}
+
+.google-logout-btn {
+  background: $light-black;
+  border: none;
+  color: #ffffff;
+  font-family: $default-font;
+  font-size: 16px;
+    height: 72px;
+ margin-left: 16px;
+  padding: 10px 22px;
+  width: 128px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: $bright-pink;
+    color: $light-pink;
+  }
+}
+
+// CHECAR ESTO
+@media (max-width: $breakpoint-half-screen) {
+  .google-login-btn {
+    display: flex;
+    background: none;
+    font-size: 20px;
+    margin: 0;
+    width: fit-content;
+    padding: 0;
+
+
+    &:hover {
+      background: none;
+      border-style: none;
+      transition: all 0.2s ease-in-out;
+      color: $bright-pink;
+    }
+
+    &:active {
+      outline: none;
+    }
+  }
+
+  .google-logout-btn {
+    background: none;
+    font-size: 20px;
+    margin: 8px 16px;
+    width: 128px;
+
+    &:hover {
+      background: none;
+      transition: all 0.2s ease-in-out;
+      color: $bright-pink;
+    }
+    &:active {
+      outline: none;
+    }
+  }
+}
