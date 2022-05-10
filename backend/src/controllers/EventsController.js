@@ -161,5 +161,5 @@ module.exports = {
       res.json({ message: 'no se encontraron eventos' });
     }
   },
-  //remove event
+  //check an user can register or not
 };

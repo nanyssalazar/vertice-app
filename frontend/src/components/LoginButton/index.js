@@ -35,6 +35,8 @@ const LoginButton = () => {
     localStorage.setItem('lastNames', response.data.member[0].lastNames);
     localStorage.setItem('idIest', response.data.member[0].idIest);
     localStorage.setItem('id', response.data.member[0]._id);
+    localStorage.setItem('gen', response.data.member[0].gen);
+    localStorage.setItem('bachelor', response.data.member[0].bachelor);
 
     setIsLogedIn(true);
     console.log('[Login Success] currentUser:', res.profileObj);
@@ -54,6 +56,8 @@ const LoginButton = () => {
     localStorage.removeItem('lastNames');
     localStorage.removeItem('idIest');
     localStorage.removeItem('id');
+    localStorage.removeItem('gen');
+    localStorage.removeItem('bachelor');
     alert('Has cerrado sesión.');
     navigate('/');
   };
