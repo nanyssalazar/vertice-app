@@ -13,5 +13,11 @@ routes.put('/members/:email', MembersController.updateProfilePicture);
 
 routes.get('/events', EventsController.getAllEvents);
 routes.post('/events', EventsController.createEvent);
+routes.get('/events/:eventId', EventsController.getEventById);
+routes.put('/events/:eventId/attendees/', EventsController.registerAttendee);
+routes.put(
+  '/events/:eventId/attendees/:memberId',
+  EventsController.registerAttendance
+);
 
 module.exports = routes;
