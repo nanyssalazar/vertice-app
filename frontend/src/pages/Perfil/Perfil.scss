@@ -1,7 +1,243 @@
-.profile-container {
-    display: flex;
+@import "../../variables.scss";
+
+.profile-container {
+  color: $off-white;
+  display: grid;
+  font-family: $default-font;
+  font-size: 20px;
+  height: 80vh;
+  padding: 32px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "profile-info points assistance"
+    "profile-info events events";
+  grid-row-gap: 48px;
+  grid-column-gap: 48px;
+
+  &__box {
+    &--info {
+      background-color: $light-pink;
+      border-radius: 24px;
+      grid-area: profile-info;
+      text-align: center;
+
+      &--bold {
+        font-weight: 500;
+      }
+
+      p:nth-child(1) {
+        font-size: 24px;
+      }
+
+      img {
+        width: 200px;
+        height: 200px;
+        border-radius: 32px;
+        padding: 16px 0;
+      }
+
+      @media screen and (max-width: $breakpoint-smaller-phone) {
+        font-size: 18px;
+
+        p {
+          width: 80%;
+          margin: 24px auto;
+        }
+      }
+    }
+
+    &--points {
+      border-radius: 24px;
+      grid-area: points;
+      background-color: $bright-pink;
+      padding-left: 32px;
+
+      &--bold {
+        font-weight: 500;
+      }
+
+      p:nth-child(1) {
+        font-size: 24px;
+      }
+
+      p:nth-child(2) {
+        font-size: 88px;
+        margin: 48px 0;
+
+        @media screen and (max-width: $breakpoint-ipad-screen) {
+          font-size: 72px;
+        }
+        @media screen and (max-width: $breakpoint-half-screen) {
+          font-size: 60px;
+        }
+        @media screen and (max-width: $breakpoint-smaller-phone) {
+          font-size: 56px;
+          margin: 16px 0 24px;
+        }
+      }
+    }
+
+    &--assistance {
+      grid-area: assistance;
+      background-color: $normal-pink;
+      border-radius: 24px;
+      padding-left: 32px;
+
+      &--bold {
+        font-weight: 500;
+        color: $off-white;
+      }
+
+      &--icon {
+        display: flex;
+        margin: 0 auto;
+        width: 44%;
+      }
+
+      p:nth-child(1) {
+        font-size: 24px;
+      }
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.04);
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    &--events {
+      border-radius: 24px;
+      grid-area: events;
+      color: $off-white;
+
+      background-color: $bright-pink;
+
+      &--bold {
+        font-weight: 500;
+      }
+
+      p:nth-child(1) {
+        display: block;
+        font-size: 24px;
+        margin-bottom: 16px;
+        padding-left: 32px;
+      }
+
+      &--imgs {
+        display: flex;
+        justify-content: space-evenly;
+        img {
+          width: 192px;
+          height: 192px;
+        }
+      }
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.04);
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-ipad-screen) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+      "profile-info points"
+      "profile-info assistance"
+      "events events";
+    padding: 48px 32px;
+    height: auto;
 
     &__box {
-        
+      &--assistance {
+        &--icon {
+          margin: 40px auto 0;
+          width: 50%;
+        }
+      }
+
+      &--events {
+        &--imgs {
+          img {
+            width: 164px;
+            height: 164px;
+          }
+        }
+      }
     }
+  }
+
+  @media screen and (max-width: $breakpoint-half-screen) {
+    grid-template-columns: 1.2fr 1fr;
+
+    &__box {
+      &--info {
+        img {
+          padding-bottom: 0;
+        }
+        p {
+          width: 80%;
+          margin: 24px auto;
+
+          font-size: 18px;
+        }
+      }
+
+      &--points {
+        height: 80%;
+        align-self: center;
+      }
+
+      &--assistance {
+        height: 80%;
+        align-self: center;
+      }
+
+      &--events {
+        &--imgs {
+          img:nth-child(1) {
+            display: none;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: $breakpoint-phone-screen) {
+      height: auto;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: auto;
+      grid-template-areas:
+        "profile-info"
+        "points"
+        "assistance"
+        "events";
+      &__box {
+        &--points {
+          height: 100%;
+        }
+        &--assistance {
+          height: 100%;
+          &--icon {
+            margin: 16px auto;
+            width: 48%;
+          }
+        }
+        &--events {
+          &--imgs {
+            img:nth-child(1) {
+              display: block;
+            }
+            img:not(:first-child) {
+              display: none;
+            }
+
+            img {
+              margin-bottom: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
