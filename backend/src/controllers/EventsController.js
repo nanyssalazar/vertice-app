@@ -146,5 +146,20 @@ module.exports = {
       return res.json({ message: 'Points not edited' });
     }
   },
+  // calc Points from member
+  async calcAttendance(req, res) {
+    const { memberId } = req.params;
+    const totalPoints = await Event.aggregate([
+      { $match: { 'attendees.id': memberId, 'attendees.attended': true } },
+      { $group: { _id: null, totalPoints: { $sum: '$points' } } },
+    ]);
+    console.log(totalPoints);
+    if (totalPoints) {
+      console.log(totalPoints);
+      return res.json(totalPoints);
+    } else {
+      res.json({ message: 'no se encontraron eventos' });
+    }
+  },
   //remove event
 };
