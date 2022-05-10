@@ -1,0 +1,67 @@
+@import "../../variables";
+
+.event-container {
+  background-color: $light-pink;
+  border-radius: 16px;
+  color: $off-white;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 16px 24px;
+  height: fit-content;
+  p {
+    margin: 16px 0;
+  }
+
+  &__type {
+    font-weight: 700;
+    color: $normal-pink;
+    padding-bottom: 8px;
+  }
+
+  &__title {
+    font-size: 28px;
+    color: $bright-pink;
+    @media screen and (max-width: $breakpoint-half-screen) {
+      font-size: 24px;
+    }
+  }
+
+  &--columns {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+
+    p {
+      margin: 8px 0;
+      font-weight: 600;
+    }
+
+    @media screen and (max-width: $breakpoint-half-screen) {
+      display: inline;
+      font-size: 16px;
+
+      p {
+        margin: 10px 0;
+      }
+    }
+  }
+
+  &__description {
+    color: $off-white;
+
+    @media screen and (max-width: $breakpoint-half-screen) {
+      padding-top: 8px;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 152px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+  }
+}
