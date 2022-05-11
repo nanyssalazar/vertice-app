@@ -10,16 +10,8 @@ module.exports = {
     }
   },
   async createMember(req, res) {
-    const {
-      name,
-      lastNames,
-      idIest,
-      email,
-      gen,
-      bachelor,
-      profilePicture,
-      attendance,
-    } = req.body;
+    const { name, lastNames, idIest, email, gen, bachelor, profilePicture } =
+      req.body;
     console.log(req);
     const member = await Member.create({
       name,
@@ -29,7 +21,6 @@ module.exports = {
       gen,
       bachelor,
       profilePicture,
-      attendance,
     });
     console.log(member);
     return res.json(member);
@@ -61,10 +52,11 @@ module.exports = {
         } catch (e) {
           return res.json({
             message: 'Alumno es miembro. Foto no se actualizo',
+            member: member,
           });
         }
       } else {
-        return res.json({message: "Alumno es miembro."})
+        return res.json({ message: 'Alumno es miembro.', member: member });
       }
     }
   },

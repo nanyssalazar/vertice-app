@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from "react";
-import Navbar from "../../components/Navbar"
-import Footer from "../../components/Footer"
-import EventCard from "../../components/EventCard/index.js";
-import api from "../../services/api.js";
-import "./Events.scss";
+import React, { useState, useEffect } from 'react';
+import api from '../../services/api.js';
 
 const Events = () => {
   const [events, setEvents] = useState(null);
 
   const fetchEvents = async () => {
-    const response = await api.get("/events");
+    const response = await api.get('/events');
     const eventsFetched = response.data;
     console.log(response);
     setEvents(eventsFetched);
@@ -21,16 +17,14 @@ const Events = () => {
 
   return (
     <div>
-    <Navbar/>
-      <h2 className="events-header">Actividades</h2>
-      <div className="events-wrapper">
+      <h1>EVENTS PAGE UHUHUHUH</h1>
+      <div className='cards-wrapper'>
         {events ? (
-          events.map((event) => <EventCard key={event._id} data={event} />)
+          events.map((event) => <p key={event._id}>{event.title}</p>)
         ) : (
           <h2>No eventos</h2>
         )}
       </div>
-      <Footer/>
     </div>
   );
 };
