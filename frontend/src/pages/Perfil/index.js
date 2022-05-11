@@ -12,12 +12,13 @@ const Perfil = () => {
     const response = await api.get(
       `/events/all/attendees/${localStorage.getItem('id')}`
     );
-    const pointsFetched = response.data;
-    console.log(response);
+    const pointsFetched = response.data[0].totalPoints;
+    console.log('ola');
+    console.log(response.data[0].totalPoints);
     setPoints(pointsFetched);
-    console.log(points[0].totalPoints);
   };
 
+  //creo que aqui hay que poner un timeout
   useEffect(() => {
     fetchPoints();
   }, []);
@@ -39,7 +40,7 @@ const Perfil = () => {
         </div>
         <div className='profile-container__box--points'>
           <p className='profile-container__box--points--bold'>Puntaje</p>
-          <p>{points[0].totalPoints} / 100</p>
+          <p>{points} / 100</p>
         </div>
         <a className='profile-container__box--assistance' href='/asistencias'>
           <p className='profile-container__box--assistance--bold'>

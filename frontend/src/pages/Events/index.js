@@ -5,7 +5,9 @@ const Events = () => {
   const [events, setEvents] = useState(null);
 
   const fetchEvents = async () => {
-    const response = await api.get('/events');
+    const response = await api.get(
+      `/events/gen/${localStorage.getItem('gen')}`
+    );
     const eventsFetched = response.data;
     console.log(response);
     setEvents(eventsFetched);

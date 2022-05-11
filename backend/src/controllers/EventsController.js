@@ -161,5 +161,24 @@ module.exports = {
       res.json({ message: 'no se encontraron eventos' });
     }
   },
+  //get events according to gen
+  async getEventsByGen(req, res) {
+    const { gen } = req.params;
+    const events = await Event.aggregate([
+      {
+        $match: {
+          availability: { $gt: 0 },
+          generation: { $in: [gen] },
+        },
+      },
+    ]);
+    console.log(events);
+    if (events) {
+      console.log(events);
+      return res.json(events);
+    } else {
+      res.json({ message: 'No se encontraron eventos' });
+    }
+  },
   //check an user can register or not
 };

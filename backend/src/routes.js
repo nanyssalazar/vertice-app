@@ -19,6 +19,7 @@ routes.put(
   '/events/:eventId/attendees/:memberId',
   EventsController.registerAttendance
 );
+routes.get('/events/gen/:gen', EventsController.getEventsByGen);
 routes.get('/events/all/attendees/:memberId', EventsController.calcAttendance);
 
 module.exports = routes;
