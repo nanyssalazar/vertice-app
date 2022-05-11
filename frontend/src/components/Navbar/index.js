@@ -28,8 +28,8 @@ const Navbar = ({ toggle }) => {
                 <a href="/aplicar">Aplicar</a>
               </li>
             </>
-          ) : currentLocation === "/new-event" ||
-            currentLocation === "/dashboard-eventos" ? (
+          ) : (currentLocation === "/new-event" ||
+            currentLocation === "/dashboard-eventos") ? (
             <>
               <FaBars className="navbar__bars" onClick={toggle} />
               <li>
