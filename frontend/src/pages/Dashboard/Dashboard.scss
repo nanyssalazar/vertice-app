@@ -1,0 +1,193 @@
+@import "../../variables";
+
+@import "../../variables.scss";
+
+.dashboard-container {
+  background-image: url("../../images/white-background.png");
+    background-size: 200%;
+  display: grid;
+  font-family: $default-font;
+  font-size: 20px;
+  height: 100vh;
+  padding: 80px 32px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "profile-info assistance events"
+    "profile-info applications members";
+  grid-row-gap: 48px;
+  grid-column-gap: 48px;
+
+  &__box {
+    &--info {
+      background-color: $light-pink;
+      border-radius: 24px;
+      grid-area: profile-info;
+      text-align: center;
+      color: $off-white;
+
+      &--bold {
+        font-weight: 500;
+      }
+
+      p:nth-child(1) {
+        font-size: 24px;
+      }
+
+      img {
+        width: 200px;
+        height: 200px;
+        border-radius: 32px;
+        padding: 16px 0;
+      }
+
+      @media screen and (max-width: $breakpoint-smaller-phone) {
+        font-size: 18px;
+
+        p {
+          width: 80%;
+          margin: 24px auto;
+        }
+      }
+    }
+
+    &--applications {
+      border-radius: 24px;
+      grid-area: applications;
+      background-color: $bright-pink;
+      color: $off-white;
+      display: flex;
+      flex-direction: column;
+
+      &--bold {
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 24px;
+        padding-left: 32px;
+      }
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.04);
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    &--assistance {
+      grid-area: assistance;
+      background-color: $normal-pink;
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+
+      &--bold {
+        font-weight: 500;
+        color: $off-white;
+      }
+
+      p {
+        font-size: 24px;
+        padding-left: 32px;
+      }
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.04);
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    &--events,
+    &--members {
+      border-radius: 24px;
+      grid-area: events;
+      color: $off-white;
+      display: flex;
+      flex-direction: column;
+
+      background-color: $bright-pink;
+
+      &--bold {
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 24px;
+        padding-left: 32px;
+      }
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.04);
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    &--members {
+      grid-area: members;
+      background-color: $light-pink;
+    }
+
+    &--icon {
+      align-self: center;
+      width: 164px;
+      height: 164px;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-ipad-screen) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+      "profile-info applications"
+      "profile-info assistance"
+      "events members";
+    padding: 48px 32px;
+    height: auto;
+
+    &__box {
+      &--icon {
+        width: 140px;
+        height: 140px;
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-half-screen) {
+    &__box {
+      &--info {
+        p {
+          width: 80%;
+          margin: 24px auto;
+          font-size: 18px;
+        }
+      }
+
+      &--icon {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 24px;
+      }
+    }
+    @media screen and (max-width: $breakpoint-phone-screen) {
+      height: auto;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: auto;
+      grid-template-areas:
+        "profile-info"
+        "assistance"
+        "events"
+        "members"
+        "applications";
+
+      &__box {
+        &--icon {
+            margin-bottom: 32px;
+        }
+      }
+    }
+  }
+}

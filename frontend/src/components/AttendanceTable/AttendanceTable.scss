@@ -1,0 +1,26 @@
+@import "../../variables";
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 20px 20px 80px 15px $gray-color;
+
+  th {
+    background-color: $gray-color;
+    padding: 16px 0;
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  td {
+    font-size: 18px;
+    padding: 12px 0;
+    border-bottom: 1px solid $gray-color;
+    text-align: center;
+  }
+
+
+  &__checkbox {
+    justify-content: center;
+  }
+}
