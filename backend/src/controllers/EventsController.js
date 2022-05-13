@@ -78,7 +78,8 @@ module.exports = {
   //add attendance
   async registerAttendance(req, res) {
     const { eventId, memberId } = req.params;
-    //console.log(req);
+    console.log(req.params);
+    console.log(req.body);
     try {
       await Event.updateOne(
         {
@@ -102,7 +103,7 @@ module.exports = {
   // remove attendance
   async removeAttendance(req, res) {
     const { eventId, memberId } = req.params;
-    //console.log(req);
+    console.log(req);
     try {
       await Event.updateOne(
         {

@@ -21,13 +21,24 @@ module.exports = {
     return res.json(admin);
   },
   async getAdminById(req, res) {
-    //const { adminId } = req.params.id;
-    //console.log(adminId);
+    const { adminId } = req.params.id;
+    console.log(adminId);
     const admin = await Administrator.findById(req.params.id);
     if (admin) {
       return res.json(admin);
     } else {
       return res.json({ message: 'Admin not found.' });
+    }
+  },
+  async getAdminByEmail(req, res) {
+    const { email } = req.params;
+    console.log(email);
+    const admin = await Administrator.find({ email: email });
+    //si el correo no es parte de vertice
+    if (admin.length === 0) {
+      return res.json({ message: 'No es administrador' });
+    } else {
+      return res.json({ message: 'Es administrador', admin: admin });
     }
   },
 };

@@ -21,11 +21,16 @@ routes.put(
   '/events/:eventId/attendees/:memberId',
   EventsController.registerAttendance
 );
+routes.put(
+  '/events/:eventId/attendees/false/:memberId',
+  EventsController.removeAttendance
+);
 routes.get('/events/gen/:gen', EventsController.getEventsByGen);
 routes.get('/events/all/attendees/:memberId', EventsController.calcAttendance);
 
-routes.get('/admin', AdministratorController.getAllAdministrators);
-routes.post('/admin', AdministratorController.createAdministrator);
-routes.get('/admin/:id', AdministratorController.getAdminById);
+routes.get('/admins', AdministratorController.getAllAdministrators);
+routes.post('/admins', AdministratorController.createAdministrator);
+routes.get('/admins/:id', AdministratorController.getAdminById);
+routes.get('/admins/email/:email', AdministratorController.getAdminByEmail);
 
 module.exports = routes;
