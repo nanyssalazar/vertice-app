@@ -59,7 +59,7 @@ const Perfil = () => {
             className="profile-container__box--assistance--icon"
           />
         </a>
-        <a className="profile-container__box--events" href="/events">
+        <a className="profile-container__box--events" href="/eventos">
           <p className="profile-container__box--events--bold">Eventos</p>
           <div className="profile-container__box--events--imgs">
             <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clker.com%2Fcliparts%2F1%2F9%2Fe%2F4%2F13140637591549686593blue%2520square.png&f=1&nofb=1" />

@@ -1,6 +1,6 @@
 @import "../../variables";
 
-.attendance-table {
+.table-data {
   width: 100%;
   border-collapse: collapse;
   box-shadow: 20px 20px 80px 15px $gray-color;
@@ -10,6 +10,10 @@
     padding: 16px 0;
     font-weight: 500;
     font-size: 20px;
+    
+    &:nth-child(1) {
+      width: 40%;
+    }
   }
 
   td {

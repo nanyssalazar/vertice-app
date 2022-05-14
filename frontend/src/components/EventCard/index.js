@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./EventCard.scss";
 
 const EventCard = ({
+  eventId,
   data: {
     title,
     description,
@@ -15,17 +18,23 @@ const EventCard = ({
     eventType,
   },
 }) => {
+  const currentLocation = window.location.pathname;
+  const navigate = useNavigate();
 
   const dateOptions = {
     year: "numeric",
     month: "long",
     day: "numeric",
   };
-  
+
   const handleClick = () => {
+    // si esta en el modo admin entonces lo redigira a la asistencia
+    if (currentLocation === "/dashboard/eventos") {
+      navigate(`/dashboard/eventos/${eventId}/asistencias`);
+    }
     // do thing on backend heheheh
     console.log("HEREEEE");
-  }
+  };
 
   return (
     <div className="event-container" onClick={handleClick}>

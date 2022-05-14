@@ -1,0 +1,15 @@
+@import "../../variables";
+
+.members-container {
+  background-image: url("../../images/white-background.png");
+  background-size: 200%;
+  padding: 48px 48px 120px;
+
+  h2 {
+    color: $bright-pink;
+    font-weight: 500;
+    font-size: 56px;
+    text-align: center;
+    margin-bottom: 64px;
+  }
+}

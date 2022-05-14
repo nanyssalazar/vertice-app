@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-// import Footer from '../../components/Footer';
 import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
 import AttendanceTable from '../../components/AttendanceTable';
 import api from '../../services/api.js';
 import './Attendance.scss';
+import Footer from '../../components/Footer';
 
 const Attendance = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,16 +56,18 @@ const Attendance = () => {
               <p>{event.attendees.length}</p>
             </div>
           </div>
-
           <h3 className='attendance__subtitle'>Asistentes</h3>
           <AttendanceTable
             eventPoints={event.points}
             attendees={event.attendees}
           />
         </div>
+        
       ) : (
         <h2>No eventos</h2>
       )}
+
+      <Footer/>
     </>
   );
 };

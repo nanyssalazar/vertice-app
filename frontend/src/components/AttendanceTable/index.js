@@ -30,11 +30,11 @@ const AttendanceTable = ({ eventPoints, attendees }) => {
 
   return (
     <>
-      <table className='attendance-table'>
+      <table className='table-data'>
         <tr>
-          <th scope='col'>Nombre</th>
-          <th scope='col'>ID</th>
-          <th scope='col'>Asistencia</th>
+          <th scope='col' colSpan={1}>Nombre</th>
+          <th scope='col' colSpan={2}>ID</th>
+          <th scope='col' colSpan={1}>Asistencia</th>
         </tr>
         {attendees ? (
           attendees.map((attendee) => (

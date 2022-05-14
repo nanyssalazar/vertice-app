@@ -54,6 +54,7 @@ export const SidebarLink = styled.a`
   justify-content: center;
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
+  margin: 32px 0;
   text-decoration: none;
   list-style: none;
   transition: 0.2s ease-in-out;
