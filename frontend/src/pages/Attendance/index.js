@@ -7,10 +7,18 @@ import './Attendance.scss';
 import Footer from '../../components/Footer';
 
 const Attendance = () => {
+  let _ = require('underscore');
   const [isOpen, setIsOpen] = useState(false);
   const [event, setEvent] = useState(null);
   const pathArray = window.location.pathname.split('/');
   const eventId = pathArray[3];
+  let sortedAttendeesByGen;
+
+  //Sort attendees by id and gen
+  if (event) {
+    const sortedAttendeesById = _.sortBy(event.attendees, 'idIest');
+    sortedAttendeesByGen = _.sortBy(sortedAttendeesById, 'gen');
+  }
 
   const fetchEvent = async () => {
     console.log('auiiii');
@@ -22,12 +30,6 @@ const Attendance = () => {
 
   useEffect(() => {
     fetchEvent();
-    // we need the time out for local storage author
-    // let timer = setTimeout(() => {
-    //   fetchEvent();
-    // }, 200);
-
-    // return () => clearTimeout(timer);
   }, []);
 
   const toggle = () => {
@@ -59,15 +61,14 @@ const Attendance = () => {
           <h3 className='attendance__subtitle'>Asistentes</h3>
           <AttendanceTable
             eventPoints={event.points}
-            attendees={event.attendees}
+            attendees={sortedAttendeesByGen}
           />
         </div>
-        
       ) : (
         <h2>No eventos</h2>
       )}
 
-      <Footer/>
+      <Footer />
     </>
   );
 };

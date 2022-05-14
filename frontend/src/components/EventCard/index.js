@@ -45,6 +45,7 @@ const EventCard = ({
       const response = await api.put(`/events/${_id}/attendees/`, {
         id: localStorage.getItem('id'),
         idIest: localStorage.getItem('idIest'),
+        gen: localStorage.getItem('gen'),
         name: localStorage.getItem('name'),
         lastNames: localStorage.getItem('lastNames'),
         attended: false,

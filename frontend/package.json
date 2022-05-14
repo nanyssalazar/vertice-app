@@ -19,6 +19,7 @@
     "react-simply-carousel": "^5.1.5",
     "stream-browserify": "^3.0.0",
     "styled-components": "^5.3.5",
+    "underscore": "^1.13.3",
     "web-vitals": "^0.2.4",
     "workbox-background-sync": "^5.1.4",
     "workbox-broadcast-update": "^5.1.4",
