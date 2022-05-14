@@ -118,6 +118,7 @@ module.exports = {
           generation: { $in: [gen] },
         },
       },
+      { $sort: { date: 1 } },
     ]);
     console.log(events);
     if (events) {

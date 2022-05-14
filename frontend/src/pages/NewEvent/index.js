@@ -218,11 +218,11 @@ const NewEvent = () => {
             onChange={(event) => handleGenerationOptions(event)}
             required
           >
-            <option value='Primera'>Primera</option>
-            <option value='Segunda'>Segunda</option>
-            <option value='Tercera'>Tercera</option>
-            <option value='Cuarta'>Cuarta</option>
-            <option value='Quinta'>Quinta</option>
+            <option value='1'>Primera</option>
+            <option value='2'>Segunda</option>
+            <option value='3'>Tercera</option>
+            <option value='4'>Cuarta</option>
+            <option value='5'>Quinta</option>
           </select>
           <button type='submit'>Crear evento</button>
         </form>
