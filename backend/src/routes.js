@@ -26,8 +26,11 @@ routes.put(
   EventsController.removeAttendance
 );
 routes.get('/events/gen/:gen', EventsController.getEventsByGen);
-routes.get('/events/all/attendees/:memberId', EventsController.calcAttendance);
-
+routes.get('/events/all/attendees/:memberId', EventsController.getAttendance);
+routes.get(
+  '/events/all/attendees/:memberId/points',
+  EventsController.calcPoints
+);
 routes.get('/admins', AdministratorController.getAllAdministrators);
 routes.post('/admins', AdministratorController.createAdministrator);
 routes.get('/admins/:id', AdministratorController.getAdminById);

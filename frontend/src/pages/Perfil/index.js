@@ -15,7 +15,7 @@ const Perfil = () => {
 
   const fetchPoints = async () => {
     const response = await api.get(
-      `/events/all/attendees/${localStorage.getItem('id')}`
+      `/events/all/attendees/${localStorage.getItem('id')}/points`
     );
     const pointsFetched = response.data[0].totalPoints;
     console.log(response.data[0].totalPoints);

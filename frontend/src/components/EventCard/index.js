@@ -28,7 +28,16 @@ const EventCard = ({
     day: 'numeric',
   };
 
-  const register = async () => {
+  // const register = async () => {
+
+  // };
+
+  const handleClick = async () => {
+    // si esta en el modo admin entonces lo redigira a la asistencia
+    if (currentLocation === '/dashboard/eventos') {
+      navigate(`/dashboard/eventos/${eventId}/asistencias`);
+      return;
+    }
     const confirmation = window.confirm(
       '¿Estás seguro que deseas registrarte a este evento?'
     );
@@ -46,17 +55,8 @@ const EventCard = ({
     }
   };
 
-  const handleClick = () => {
-    // si esta en el modo admin entonces lo redigira a la asistencia
-    if (currentLocation === '/dashboard/eventos') {
-      navigate(`/dashboard/eventos/${eventId}/asistencias`);
-    }
-    // do thing on backend heheheh
-    console.log('HEREEEE');
-  };
-
   return (
-    <div className='event-container' onClick={register}>
+    <div className='event-container' onClick={handleClick}>
       <div className='event-container--columns'>
         <p className='event-container__type'>{eventType}</p>
         <p>Fecha: {new Date(date).toLocaleDateString('es-MX', dateOptions)}</p>

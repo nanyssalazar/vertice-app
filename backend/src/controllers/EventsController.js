@@ -176,7 +176,7 @@ module.exports = {
     }
   },
   // calc Points from member
-  async calcAttendance(req, res) {
+  async calcPoints(req, res) {
     const { memberId } = req.params;
     const totalPoints = await Event.aggregate([
       { $match: { 'attendees.id': memberId, 'attendees.attended': true } },
@@ -188,6 +188,36 @@ module.exports = {
       return res.json(totalPoints);
     } else {
       res.json({ message: 'no se encontraron eventos' });
+    }
+  },
+  async getAttendance(req, res) {
+    const { memberId } = req.params;
+    const events = await Event.aggregate([
+      { $match: { 'attendees.id': memberId, semester: 'AGO-DIC 2022' } },
+      // { $group: {"_id": "$_id", "Link": {$push: "$Link"}, "count": { "$sum": 1 }}},
+      {
+        $project: {
+          _id: 1,
+          title: 1,
+          date: 1,
+          points: 1,
+          member: {
+            $filter: {
+              input: '$attendees',
+              as: 'attendee',
+              cond: { $eq: ['$$attendee.id', memberId] },
+            },
+          },
+        },
+      },
+      { $sort: { date: -1 } },
+    ]);
+    console.log(events);
+    if (events) {
+      console.log(events);
+      return res.json(events);
+    } else {
+      res.json({ message: 'No se encontraron eventos' });
     }
   },
 };

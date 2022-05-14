@@ -2,7 +2,10 @@ const Member = require('../models/Member');
 
 module.exports = {
   async getAllMembers(req, res) {
-    const members = await Member.find({});
+    const members = await Member.aggregate([
+      { $match: { _id: { $exists: true } } },
+      { $sort: { gen: 1, idIest: -1 } },
+    ]);
     if (members) {
       return res.json(members);
     } else {
