@@ -59,17 +59,24 @@ module.exports = {
   // add attendee
   async registerAttendee(req, res) {
     const { eventId } = req.params;
-    console.log();
+    console.log(eventId);
     try {
+      const isRegistered = await Event.find({
+        _id: eventId,
+        'attendees.id': req.body.id,
+      });
+      if (isRegistered != 0) {
+        return res.json({ message: 'Member already registered' });
+      }
       await Event.updateOne(
         { _id: eventId, availability: { $gt: 0 } },
         {
           $inc: { availability: -1 },
-          $push: { attendees: req.body.body },
+          $push: { attendees: req.body },
         }
       );
       console.log('registrando');
-      return res.json({ message: 'Register succesfull' });
+      return res.json({ message: 'You were registered succesfully' });
     } catch (e) {
       console.log('error');
       return res.json({ message: 'You were not registed' });
@@ -100,6 +107,27 @@ module.exports = {
       return res.json({ message: 'Attendance not registered' });
     }
   },
+  //get events according to gen
+  async getEventsByGen(req, res) {
+    const { gen } = req.params;
+    const events = await Event.aggregate([
+      {
+        $match: {
+          status: 'Active',
+          availability: { $gt: 0 },
+          generation: { $in: [gen] },
+        },
+      },
+    ]);
+    console.log(events);
+    if (events) {
+      console.log(events);
+      return res.json(events);
+    } else {
+      res.json({ message: 'No se encontraron eventos' });
+    }
+  },
+  //not used methods
   // remove attendance
   async removeAttendance(req, res) {
     const { eventId, memberId } = req.params;
@@ -162,24 +190,4 @@ module.exports = {
       res.json({ message: 'no se encontraron eventos' });
     }
   },
-  //get events according to gen
-  async getEventsByGen(req, res) {
-    const { gen } = req.params;
-    const events = await Event.aggregate([
-      {
-        $match: {
-          availability: { $gt: 0 },
-          generation: { $in: [gen] },
-        },
-      },
-    ]);
-    console.log(events);
-    if (events) {
-      console.log(events);
-      return res.json(events);
-    } else {
-      res.json({ message: 'No se encontraron eventos' });
-    }
-  },
-  //check an user can register or not
 };
