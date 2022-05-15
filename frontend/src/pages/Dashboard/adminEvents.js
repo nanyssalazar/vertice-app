@@ -33,9 +33,9 @@ const AdminEvents = () => {
         <h2 className="events-container__header">Actividades</h2>
         <div className='events-container__grid'>
           {events ? (
-            events.map((event) => (
+            events.map((event, _id) => (
               <EventCard
-                key={event._id}
+                key={_id}
                 data={event}
                 eventId={event._id}
               ></EventCard>

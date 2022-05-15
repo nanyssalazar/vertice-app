@@ -28,9 +28,6 @@ const EventCard = ({
     day: 'numeric',
   };
 
-  // const register = async () => {
-
-  // };
 
   const handleClick = async () => {
     // si esta en el modo admin entonces lo redigira a la asistencia

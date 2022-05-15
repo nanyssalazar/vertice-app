@@ -9,7 +9,7 @@ import "./Events.scss";
 const Events = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [events, setEvents] = useState(null);
-  
+
   const fetchEvents = async () => {
     const response = await api.get(
       `/events/gen/${localStorage.getItem("gen")}`
@@ -35,7 +35,7 @@ const Events = () => {
         <h2 className="events-container__header">Actividades</h2>
         <div className="events-container__grid">
           {events ? (
-            events.map((event) => <EventCard key={event._id} data={event} />)
+            events.map((event, _id) => <EventCard key={_id} data={event} />)
           ) : (
             <h2>No eventos</h2>
           )}
