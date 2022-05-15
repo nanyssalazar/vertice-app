@@ -24,6 +24,8 @@ const LoginButton = () => {
 
       localStorage.setItem("id", response.data.admin[0]._id);
       localStorage.setItem("name", response.data.admin[0].name);
+      localStorage.setItem("lastNames", response.data.admin[0].lastNames);
+
       localStorage.setItem("userType", "admin");
       // alert("SOY ADMIN");
       if (currentLocation === "/") {

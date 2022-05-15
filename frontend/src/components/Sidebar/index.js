@@ -27,7 +27,7 @@ const Sidebar = ({ isOpen, toggle }) => {
             </>
           ) : isAdmin ? (
             <>
-              <SidebarLink href="/">Inicio</SidebarLink>
+              <SidebarLink href="/dashboard">Inicio</SidebarLink>
               <SidebarLink href="/dashboard/solicitudes">Solicitudes</SidebarLink>
               <SidebarLink href="/dashboard/eventos">Asistencias</SidebarLink>
               <SidebarLink href="/dashboard/nuevo-evento">Nuevo Evento</SidebarLink>
@@ -35,9 +35,9 @@ const Sidebar = ({ isOpen, toggle }) => {
             </>
           ) : (
             <>
-              <SidebarLink href="/">Inicio</SidebarLink>
-              <SidebarLink href="/perfil">Mi perfil</SidebarLink>
+              <SidebarLink href="/mi-perfil">Inicio</SidebarLink>
               <SidebarLink href="/eventos">Eventos</SidebarLink>
+              <SidebarLink href="/asistencias">Asistencias</SidebarLink>
             </>
           )}
           <LoginButton />

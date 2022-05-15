@@ -66,7 +66,7 @@ module.exports = {
         'attendees.id': req.body.id,
       });
       if (isRegistered != 0) {
-        return res.json({ message: 'Member already registered' });
+        return res.json({ message: 'Miembro ya registrado' });
       }
       await Event.updateOne(
         { _id: eventId, availability: { $gt: 0 } },
@@ -76,10 +76,10 @@ module.exports = {
         }
       );
       console.log('registrando');
-      return res.json({ message: 'You were registered succesfully' });
+      return res.json({ message: 'Has sido registrado exitosamente.' });
     } catch (e) {
       console.log('error');
-      return res.json({ message: 'You were not registed' });
+      return res.json({ message: 'Error al tratar de registrarse.' });
     }
   },
   //add attendance

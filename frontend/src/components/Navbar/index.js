@@ -33,7 +33,7 @@ const Navbar = ({ toggle }) => {
             <>
               <FaBars className="navbar__bars" onClick={toggle} />
               <li>
-                <a href="/">Inicio</a>
+                <a href="/dashboard">Inicio</a>
               </li>
               <li>
                 <a href="/dashboard/solicitudes">Solicitudes</a>
@@ -50,10 +50,10 @@ const Navbar = ({ toggle }) => {
           ) : (
             <>
               <li>
-                <a href="/">Inicio</a>
+                <a href="/mi-perfil">Inicio</a>
               </li>
               <li>
-                <a href="/mi-perfil">Mi Perfil</a>
+                <a href="/eventos">Eventos</a>
               </li>
               <li>
                 <a href="/asistencias">Asistencias</a>

@@ -18,17 +18,17 @@ const Dashboard = () => {
       <div className="dashboard-container">
         <div className="dashboard-container__box--info">
           <p className="dashboard-container__box--info--bold">Mi perfil</p>
-          <img
+          {/* <img
             alt="dashboard-pic"
             className="dashboard-container__box--icons"
             src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clker.com%2Fcliparts%2F1%2F9%2Fe%2F4%2F13140637591549686593blue%2520square.png&f=1&nofb=1"
-          />
-          {/* <img alt="dashboard-pic" src={localStorage.getItem("imageUrl")} /> */}
+          /> */}
+          <img alt="dashboard-pic" src={localStorage.getItem("imageUrl")} />
           <p className="dashboard-container__box--info--bold">Administrador</p>
-          {/* <p>
+          <p>
             {localStorage.getItem("name")} {localStorage.getItem("lastNames")}
-          </p> */}
-          <p>Lorem Ipsum</p>
+          </p>
+          {/* <p>Lorem Ipsum</p> */}
         </div>
         <a
           className="dashboard-container__box--applications"
