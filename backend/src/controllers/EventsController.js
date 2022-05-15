@@ -180,7 +180,9 @@ module.exports = {
   async calcPoints(req, res) {
     const { memberId } = req.params;
     const totalPoints = await Event.aggregate([
-      { $match: { 'attendees.id': memberId, 'attendees.attended': true } },
+      {
+        $match: { attendees: { $elemMatch: { id: memberId, attended: true } } },
+      },
       { $group: { _id: null, totalPoints: { $sum: '$points' } } },
     ]);
     console.log(totalPoints);
