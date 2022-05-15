@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
+import Sidebar from "../../components/Sidebar";
 import api from "../../services/api";
 import "./NewEvent.scss";
 
 const NewEvent = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [img, setImg] = useState("");
@@ -19,6 +21,9 @@ const NewEvent = () => {
   const [generation, setGeneration] = useState([]);
   const [fileName, setFileName] = useState("");
 
+   const toggle = () => {
+     setIsOpen(!isOpen);
+   };
   const handleGenerationOptions = (event) => {
     let value = Array.from(
       event.target.selectedOptions,
@@ -87,7 +92,8 @@ const NewEvent = () => {
 
   return (
     <>
-      <Navbar />
+      <Sidebar isOpen={isOpen} toggle={toggle} />
+      <Navbar toggle={toggle} />{" "}
       <div className="new-event">
         <h1>Nuevo Evento</h1>
         <form onSubmit={handleSubmit} className="new-event__form">
@@ -179,6 +185,7 @@ const NewEvent = () => {
             <option value="Presencial">Presencial</option>
             <option value="Virtual">Virtual</option>
           </select>
+          <label htmlFor="place">Lugar</label>
           <select
             htmlFor="place"
             onChange={(event) => setPlace(event.target.value)}
@@ -186,8 +193,10 @@ const NewEvent = () => {
           >
             <option value="">Seleccionar opción...</option>
             <option value="Gimnasio">Gimnasio</option>
+            <option value="Salon (por definir)">Salon (por definir)</option>
+            <option value="Auditorio David Gómez">Auditorio David Gómez</option>
           </select>
- 
+
           <label htmlFor="event-type">Tipo de Evento</label>
           <select
             name="event-type"
