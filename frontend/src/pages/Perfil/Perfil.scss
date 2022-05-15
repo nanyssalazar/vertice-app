@@ -1,6 +1,8 @@
 @import "../../variables.scss";
 
 .profile-container {
+  background-image: url("../../images/white-background.png");
+  background-size: 200%;
   color: $off-white;
   display: grid;
   font-family: $default-font;

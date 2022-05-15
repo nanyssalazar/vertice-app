@@ -81,6 +81,8 @@ const NewEvent = () => {
       attendees: [],
     });
     console.log(response.data);
+    alert("Evento creado exitosamente.")
+    window.location.reload();
   };
 
   return (

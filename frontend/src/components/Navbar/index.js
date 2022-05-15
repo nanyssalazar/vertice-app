@@ -53,7 +53,7 @@ const Navbar = ({ toggle }) => {
                 <a href="/">Inicio</a>
               </li>
               <li>
-                <a href="/perfil">Mi Perfil</a>
+                <a href="/mi-perfil">Mi Perfil</a>
               </li>
               <li>
                 <a href="/asistencias">Asistencias</a>

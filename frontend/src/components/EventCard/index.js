@@ -69,7 +69,7 @@ const EventCard = ({
         <p>Generación: {generation}</p>
       </div>
       <div className='event-container--columns'>
-        <p>Comité: {committee}</p>
+        <p id='event-container__committee'>Comité: {committee.map((c)=><p>{c}</p>)}</p>
         <p>Lugar: {place}</p>
       </div>
       <div className='event-container--columns'>

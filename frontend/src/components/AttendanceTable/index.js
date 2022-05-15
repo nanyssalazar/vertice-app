@@ -32,9 +32,9 @@ const AttendanceTable = ({ eventPoints, attendees }) => {
     <>
       <table className='table-data'>
         <tr>
-          <th scope='col' colSpan={1}>Nombre</th>
-          <th scope='col' colSpan={2}>ID</th>
-          <th scope='col' colSpan={1}>Asistencia</th>
+          <th scope='col' >Nombre</th>
+          <th scope='col' >ID</th>
+          <th scope='col' >Asistencia</th>
         </tr>
         {attendees ? (
           attendees.map((attendee) => (
@@ -52,7 +52,7 @@ const AttendanceTable = ({ eventPoints, attendees }) => {
                   }}
                   borderColor='#E60B62'
                   size={24}
-                  containerClassName='attendance-table__checkbox'
+                  containerClassName='table-data__checkbox'
                   checked={attendee.attended ? true : false}
                 />
               </td>

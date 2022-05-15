@@ -29,16 +29,21 @@ const AdminEvents = () => {
     <div>
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
-      <h2 className="events-header">Actividades</h2>
-      <div className="events-wrapper">
-        {events ? (
-          events.map((event) => (
-            <EventCard key={event._id} data={event} eventId={event._id} >
-            </EventCard>
-          ))
-        ) : (
-          <h2>No eventos</h2>
-        )}
+      <div className="events-container">
+        <h2 className="events-container__header">Actividades</h2>
+        <div className='events-container__grid'>
+          {events ? (
+            events.map((event) => (
+              <EventCard
+                key={event._id}
+                data={event}
+                eventId={event._id}
+              ></EventCard>
+            ))
+          ) : (
+            <h2>No eventos</h2>
+          )}
+        </div>
       </div>
       <Footer />
     </div>
