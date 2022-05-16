@@ -8,8 +8,6 @@ const MemberSchema = new mongoose.Schema({
   gen: Number,
   bachelor: String,
   profilePicture: String,
-  attendance: Array,
-  //attendance array with name event, attendacnce (yes/no) and points
 });
 
 module.exports = mongoose.model('Member', MemberSchema);

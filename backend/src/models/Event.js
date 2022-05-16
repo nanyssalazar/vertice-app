@@ -12,7 +12,7 @@ const EventSchema = new mongoose.Schema({
   modality: String,
   place: String,
   eventType: String,
-  attendees: Array,
+  attendees: [],
   points: Number,
   semester: String,
 });

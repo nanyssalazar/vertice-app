@@ -2,7 +2,10 @@ const Member = require('../models/Member');
 
 module.exports = {
   async getAllMembers(req, res) {
-    const members = await Member.find({});
+    const members = await Member.aggregate([
+      { $match: { _id: { $exists: true } } },
+      { $sort: { gen: 1, idIest: -1 } },
+    ]);
     if (members) {
       return res.json(members);
     } else {
@@ -10,16 +13,8 @@ module.exports = {
     }
   },
   async createMember(req, res) {
-    const {
-      name,
-      lastNames,
-      idIest,
-      email,
-      gen,
-      bachelor,
-      profilePicture,
-      attendance,
-    } = req.body;
+    const { name, lastNames, idIest, email, gen, bachelor, profilePicture } =
+      req.body;
     console.log(req);
     const member = await Member.create({
       name,
@@ -29,19 +24,19 @@ module.exports = {
       gen,
       bachelor,
       profilePicture,
-      attendance,
     });
     console.log(member);
     return res.json(member);
   },
-  async getUserById(req, res) {
-    const { userId } = req.params;
-    console.log(userId);
-    const user = await User.findById(userId);
-    if (user) {
-      return res.json(user);
+  async getMemberById(req, res) {
+    //const { memberId } = req.params.id;
+    //console.log(memberId);
+    const member = await Member.findById(req.params.id);
+    console.log(member);
+    if (member) {
+      return res.json(member);
     } else {
-      return res.json({ message: 'User not found.' });
+      return res.json({ message: 'Member not found.' });
     }
   },
   async updateProfilePicture(req, res) {
@@ -61,10 +56,11 @@ module.exports = {
         } catch (e) {
           return res.json({
             message: 'Alumno es miembro. Foto no se actualizo',
+            member: member,
           });
         }
       } else {
-        return res.json({message: "Alumno es miembro."})
+        return res.json({ message: 'Alumno es miembro.', member: member });
       }
     }
   },

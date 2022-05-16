@@ -13,13 +13,13 @@ const Footer = () => {
             </a>
           </li>
           <li>
-            <p>xxx.xxx.xxx Ext. xxxx</p>
+            <p>(833) 230 2550</p>
           </li>
           <li>
             <a href="mailto:vertice@iest.edu.mx">vertice@iest.edu.mx</a>
           </li>
           <li>
-            <p>Ing. Betsabé Lorem Ipsum</p>
+            <p>Ing. Betsabé Rodríguez Silva</p>
           </li>
         </ul>
         <img src={logoIest} alt="Logo del IEST Anahuac en blanco" />

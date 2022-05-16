@@ -1,19 +1,19 @@
+@import "../../variables";
+
 @import "../../variables.scss";
 
-.profile-container {
+.dashboard-container {
   background-image: url("../../images/white-background.png");
-  background-size: 200%;
-  color: $off-white;
+    background-size: 200%;
   display: grid;
   font-family: $default-font;
   font-size: 20px;
-  height: 80vh;
-  padding: 32px;
+  padding: 80px 32px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-template-areas:
-    "profile-info points assistance"
-    "profile-info events events";
+    "profile-info assistance events"
+    "profile-info applications members";
   grid-row-gap: 48px;
   grid-column-gap: 48px;
 
@@ -23,6 +23,7 @@
       border-radius: 24px;
       grid-area: profile-info;
       text-align: center;
+      color: $off-white;
 
       &--bold {
         font-weight: 500;
@@ -49,34 +50,27 @@
       }
     }
 
-    &--points {
+    &--applications {
       border-radius: 24px;
-      grid-area: points;
+      grid-area: applications;
       background-color: $bright-pink;
-      padding-left: 32px;
+      color: $off-white;
+      display: flex;
+      flex-direction: column;
 
       &--bold {
         font-weight: 500;
       }
 
-      p:nth-child(1) {
+      p {
         font-size: 24px;
+        padding-left: 32px;
       }
 
-      p:nth-child(2) {
-        font-size: 88px;
-        margin: 48px 0;
-
-        @media screen and (max-width: $breakpoint-ipad-screen) {
-          font-size: 72px;
-        }
-        @media screen and (max-width: $breakpoint-half-screen) {
-          font-size: 60px;
-        }
-        @media screen and (max-width: $breakpoint-smaller-phone) {
-          font-size: 56px;
-          margin: 16px 0 24px;
-        }
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.04);
+        transition: all 0.2s ease-in-out;
       }
     }
 
@@ -84,21 +78,17 @@
       grid-area: assistance;
       background-color: $normal-pink;
       border-radius: 24px;
-      padding-left: 32px;
+      display: flex;
+      flex-direction: column;
 
       &--bold {
         font-weight: 500;
         color: $off-white;
       }
 
-      &--icon {
-        display: flex;
-        margin: 0 auto;
-        width: 44%;
-      }
-
-      p:nth-child(1) {
+      p {
         font-size: 24px;
+        padding-left: 32px;
       }
 
       &:hover {
@@ -108,10 +98,13 @@
       }
     }
 
-    &--events {
+    &--events,
+    &--members {
       border-radius: 24px;
       grid-area: events;
       color: $off-white;
+      display: flex;
+      flex-direction: column;
 
       background-color: $bright-pink;
 
@@ -119,26 +112,28 @@
         font-weight: 500;
       }
 
-      p:nth-child(1) {
-        display: block;
+      p {
         font-size: 24px;
-        margin-bottom: 16px;
         padding-left: 32px;
       }
 
-      &--imgs {
-        display: flex;
-        justify-content: space-evenly;
-        img {
-          width: 192px;
-          height: 192px;
-        }
-      }
       &:hover {
         cursor: pointer;
         transform: scale(1.04);
         transition: all 0.2s ease-in-out;
       }
+    }
+
+    &--members {
+      grid-area: members;
+      background-color: $light-pink;
+    }
+
+    &--icon {
+      align-self: center;
+      width: 164px;
+      height: 164px;
+      margin-bottom: 32px;
     }
   }
 
@@ -146,63 +141,35 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-template-areas:
-      "profile-info points"
+      "profile-info applications"
       "profile-info assistance"
-      "events events";
+      "events members";
     padding: 48px 32px;
     height: auto;
 
     &__box {
-      &--assistance {
-        &--icon {
-          margin: 40px auto 0;
-          width: 50%;
-        }
-      }
-
-      &--events {
-        &--imgs {
-          img {
-            width: 164px;
-            height: 164px;
-          }
-        }
+      &--icon {
+        width: 140px;
+        height: 140px;
+        margin-bottom: 32px;
       }
     }
   }
 
   @media screen and (max-width: $breakpoint-half-screen) {
-    grid-template-columns: 1.2fr 1fr;
-
     &__box {
       &--info {
-        img {
-          padding-bottom: 0;
-        }
         p {
           width: 80%;
           margin: 24px auto;
-
           font-size: 18px;
         }
       }
 
-      &--points {
-        height: 80%;
-        align-self: center;
-      }
-
-      &--assistance {
-        height: 80%;
-        align-self: center;
-      }
-
-      &--events {
-        &--imgs {
-          img:nth-child(1) {
-            display: none;
-          }
-        }
+      &--icon {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 24px;
       }
     }
     @media screen and (max-width: $breakpoint-phone-screen) {
@@ -211,33 +178,14 @@
       grid-template-rows: auto;
       grid-template-areas:
         "profile-info"
-        "points"
         "assistance"
-        "events";
-      &__box {
-        &--points {
-          height: 100%;
-        }
-        &--assistance {
-          height: 100%;
-          &--icon {
-            margin: 16px auto;
-            width: 48%;
-          }
-        }
-        &--events {
-          &--imgs {
-            img:nth-child(1) {
-              display: block;
-            }
-            img:not(:first-child) {
-              display: none;
-            }
+        "events"
+        "members"
+        "applications";
 
-            img {
-              margin-bottom: 16px;
-            }
-          }
+      &__box {
+        &--icon {
+            margin-bottom: 32px;
         }
       }
     }

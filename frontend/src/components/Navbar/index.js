@@ -8,7 +8,8 @@ import "../Navbar/Navbar.scss";
 const Navbar = ({ toggle }) => {
   const currentLocation = window.location.pathname;
   console.log(currentLocation);
-
+  const isAdmin = localStorage.getItem("userType") === "admin" ? true : false;
+  console.log(isAdmin);
   return (
     <>
       <nav className="navbar">
@@ -28,25 +29,33 @@ const Navbar = ({ toggle }) => {
                 <a href="/aplicar">Aplicar</a>
               </li>
             </>
-          ) : currentLocation === "/new-event" ||
-            currentLocation === "/dashboard-eventos" ? (
+          ) : isAdmin ? (
             <>
               <FaBars className="navbar__bars" onClick={toggle} />
               <li>
-                <a href="/">Home</a>
+                <a href="/dashboard">Inicio</a>
               </li>
               <li>
-                <a href="/eventos">Eventos</a>
+                <a href="/dashboard/solicitudes">Solicitudes</a>
+              </li>  <li>
+                <a href="/dashboard/eventos">Asistencias</a>
+              </li>
+              <li>
+                <a href="/dashboard/nuevo-evento">Nuevo Evento</a>
+              </li>
+              <li>
+                <a href="/dashboard/miembros">Miembros</a>
               </li>
             </>
           ) : (
             <>
               <li>
-                <a href="/">Home</a>
+                <a href="/mi-perfil">Inicio</a>
               </li>
               <li>
-                <a href="/perfil">Mi Perfil</a>
-              </li><li>
+                <a href="/eventos">Eventos</a>
+              </li>
+              <li>
                 <a href="/asistencias">Asistencias</a>
               </li>
             </>

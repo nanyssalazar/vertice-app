@@ -1,0 +1,35 @@
+@import "../../variables";
+
+.events-container {
+  background-image: url("../../images/white-background.png");
+  background-size: 200%;
+
+  &__header {
+    font-size: 56px;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    color: $bright-pink;
+    padding: 56px 0;
+    margin: 0;
+
+    @media screen and (max-width: $breakpoint-half-screen) {
+      font-size: 48px;
+    }
+    @media screen and (max-width: $breakpoint-phone-screen) {
+      font-size: 40px;
+    }
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-gap: 56px;
+    padding: 40px 40px 80px;
+    @media screen and (max-width: $breakpoint-half-screen) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: $breakpoint-phone-screen) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
