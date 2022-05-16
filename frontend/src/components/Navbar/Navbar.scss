@@ -43,7 +43,7 @@
         color: $bright-pink;
       }
     }
-    @media screen and (max-width: $breakpoint-half-screen) {
+    @media screen and (max-width: $breakpoint-ipad-screen) {
       display: none;
     }
   }
@@ -53,7 +53,7 @@
     color: $light-black;
     margin-right: 32px;
 
-    @media screen and (max-width: $breakpoint-half-screen) {
+    @media screen and (max-width: $breakpoint-ipad-screen) {
       display: block;
       position: absolute;
       top: 0;

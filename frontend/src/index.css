@@ -16,3 +16,7 @@ code {
 a {
   text-decoration: none;
 }
+
+#root {
+  height: 100vh;
+}
