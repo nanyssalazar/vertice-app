@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "licence": "ISC",
+  "engines": {
+    "node": "17.8.0"
+  },
   "dependencies": {
     "axios": "^0.26.1",
     "body-parser": "^1.19.2",

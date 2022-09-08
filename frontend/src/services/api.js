@@ -2,7 +2,7 @@ import axios from 'axios';
 
 //Initialize our API to request the info
 const api = axios.create({
-  baseURL: 'http://localhost:8080/',
+  baseURL: 'https://shielded-chamber-97646.herokuapp.com/',
 });
 
 export default api;
