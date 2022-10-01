@@ -153,6 +153,22 @@ module.exports = {
       return res.json({ message: 'Attendance not changed' });
     }
   },
+  async removeAttendee(req, res) {
+    const { eventId, memberId } = req.params;
+    try {
+      await Event.findOneAndUpdate(
+        {
+          _id: eventId,
+        },
+        { $inc: { availability: 1 }, $pull: { attendees: { id: memberId } } }
+      );
+      console.log('attendee removed');
+      return res.json({ message: 'Attendee removed' });
+    } catch (e) {
+      console.log('error al registrar asistencia');
+      return res.json({ message: 'Attendee not removed.' });
+    }
+  },
   // edit points
   async editPoints(req, res) {
     const { eventId, memberId, points } = req.params;

@@ -1,7 +1,7 @@
 const express = require('express');
 const EventsController = require('./controllers/EventsController');
 const MembersController = require('./controllers/MembersController');
-const AdministratorController = require('./controllers/AdministratorsContoller');
+const AdministratorController = require('./controllers/AdministratorsController');
 const routes = express.Router();
 
 routes.get('/', (req, res) => {
@@ -12,6 +12,7 @@ routes.get('/members', MembersController.getAllMembers);
 routes.post('/members', MembersController.createMember);
 routes.get('/members/:id', MembersController.getMemberById);
 routes.put('/members/:email', MembersController.updateProfilePicture);
+routes.delete('/members/:id', MembersController.removeMember);
 
 routes.get('/events', EventsController.getAllEvents);
 routes.post('/events', EventsController.createEvent);
@@ -24,6 +25,10 @@ routes.put(
 routes.put(
   '/events/:eventId/attendees/false/:memberId',
   EventsController.removeAttendance
+);
+routes.put(
+  '/events/:eventId/attendees/remove/:memberId',
+  EventsController.removeAttendee
 );
 routes.get('/events/gen/:gen', EventsController.getEventsByGen);
 routes.get('/events/all/attendees/:memberId', EventsController.getAttendance);
