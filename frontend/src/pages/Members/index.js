@@ -52,6 +52,7 @@ const Members = () => {
             </th>
             <th scope='col'>Generación</th>
             <th scope='col'>Carrera</th>
+            <th scope='col'>Eliminar</th>
           </tr>
           {members ? (
             members.map((member) => (
@@ -63,12 +64,12 @@ const Members = () => {
                 <td>{member.gen}</td>
                 <td>{member.bachelor}</td>
                 <td>
-                  <button
+                  <button className='members-container__delete'
                     onClick={() => {
                       removeMember(member._id, member.name);
                     }}
                   >
-                    Delete
+                    Eliminar 
                   </button>
                 </td>
               </tr>

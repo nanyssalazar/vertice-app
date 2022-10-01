@@ -12,4 +12,15 @@
     text-align: center;
     margin-bottom: 64px;
   }
+  &__delete {
+    font-family: $default-font;
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    &:hover {
+      color: $bright-pink;
+      cursor: pointer;
+
+    }
+  }
 }
