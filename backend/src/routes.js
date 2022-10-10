@@ -13,6 +13,7 @@ routes.post('/members', MembersController.createMember);
 routes.get('/members/:id', MembersController.getMemberById);
 routes.put('/members/:email', MembersController.updateProfilePicture);
 routes.delete('/members/:id', MembersController.removeMember);
+routes.post('/members/restore/:id', MembersController.restoreMember);
 
 routes.get('/events', EventsController.getAllEvents);
 routes.post('/events', EventsController.createEvent);
