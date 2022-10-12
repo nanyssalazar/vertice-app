@@ -2,6 +2,7 @@ const express = require('express');
 const EventsController = require('./controllers/EventsController');
 const MembersController = require('./controllers/MembersController');
 const AdministratorController = require('./controllers/AdministratorsController');
+const RemovedMembersController = require('./controllers/RemovedMembersController');
 const routes = express.Router();
 
 routes.get('/', (req, res) => {
@@ -13,7 +14,9 @@ routes.post('/members', MembersController.createMember);
 routes.get('/members/:id', MembersController.getMemberById);
 routes.put('/members/:email', MembersController.updateProfilePicture);
 routes.delete('/members/:id', MembersController.removeMember);
-routes.post('/members/restore/:id', MembersController.restoreMember);
+
+routes.get('/removed-members', RemovedMembersController.getAllRemovedMembers);
+routes.delete('/removed-members/:id', RemovedMembersController.restoreMember);
 
 routes.get('/events', EventsController.getAllEvents);
 routes.post('/events', EventsController.createEvent);
