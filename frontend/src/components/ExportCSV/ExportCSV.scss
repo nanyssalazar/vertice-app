@@ -1,0 +1,23 @@
+@import "../../variables";
+
+.export-csv {
+  font-family: $default-font;
+  font-size: 18px;
+  display: block;
+  width: fit-content;
+  background-color: $normal-pink;
+  color: $off-white;
+  padding: 10px 20px;
+  margin: 40px 0;
+  margin-left: auto;
+  border: 0;
+  border-radius: 4px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $light-pink;
+    color: $normal-pink;
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
+  }
+}

@@ -1,27 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import Navbar from '../../components/Navbar';
-import Sidebar from '../../components/Sidebar';
-import AttendanceTable from '../../components/AttendanceTable';
-import api from '../../services/api.js';
-import './Attendance.scss';
-import Footer from '../../components/Footer';
+import React, { useState, useEffect } from "react";
+import Navbar from "../../components/Navbar";
+import Sidebar from "../../components/Sidebar";
+import AttendanceTable from "../../components/AttendanceTable";
+import Footer from "../../components/Footer";
+import ExportCSV from "../../components/ExportCSV";
+import api from "../../services/api.js";
+import "./Attendance.scss";
 
 const Attendance = () => {
-  let _ = require('underscore');
+  let _ = require("underscore");
+
   const [isOpen, setIsOpen] = useState(false);
   const [event, setEvent] = useState(null);
-  const pathArray = window.location.pathname.split('/');
+  const pathArray = window.location.pathname.split("/");
   const eventId = pathArray[3];
   let sortedAttendeesByGen;
 
   //Sort attendees by id and gen
   if (event) {
-    const sortedAttendeesById = _.sortBy(event.attendees, 'idIest');
-    sortedAttendeesByGen = _.sortBy(sortedAttendeesById, 'gen');
+    const sortedAttendeesById = _.sortBy(event.attendees, "idIest");
+    sortedAttendeesByGen = _.sortBy(sortedAttendeesById, "gen");
   }
 
   const fetchEvent = async () => {
-    console.log('auiiii');
+    console.log("auiiii");
     const response = await api.get(`/events/${eventId}`);
     const eventFetched = response.data;
     console.log(response.data);
@@ -41,33 +43,32 @@ const Attendance = () => {
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
       {event ? (
-        <div className='attendance--container'>
-          <h2 className='attendance__title'>Registro de Asistencias</h2>
-          <div className='attendance--info'>
-            <div className='attendance--info__box'>
+        <div className="attendance--container">
+          <h2 className="attendance__title">Registro de Asistencias</h2>
+          <div className="attendance--info">
+            <div className="attendance--info__box">
               <p>Evento</p>
               <p>{event.title}</p>
             </div>
-            <div className='attendance--info__box'>
+            <div className="attendance--info__box">
               <p>Generación(es)</p>
-              {/* Separar por comas */}
-              <p>{event.generation.join(', ')}</p>
+              <p>{event.generation.join(", ")}</p>
             </div>
-            <div className='attendance--info__box'>
+            <div className="attendance--info__box">
               <p>Registrados</p>
               <p>{event.attendees.length}</p>
             </div>
           </div>
-          <h3 className='attendance__subtitle'>Asistentes</h3>
+          <h3 className="attendance__subtitle">Asistentes</h3>
           <AttendanceTable
             eventPoints={event.points}
             attendees={sortedAttendeesByGen}
           />
+          <ExportCSV csvData={sortedAttendeesByGen} fileName={`Asistencias ${event.title}`}/>
         </div>
       ) : (
         <h2>No eventos</h2>
       )}
-
       <Footer />
     </>
   );

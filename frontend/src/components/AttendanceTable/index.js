@@ -2,7 +2,6 @@ import React from "react";
 import Checkbox from "react-custom-checkbox";
 import * as Icon from "react-icons/fi";
 import api from "../../services/api.js";
-
 import "./AttendanceTable.scss";
 
 const AttendanceTable = ({ eventPoints, attendees }) => {
