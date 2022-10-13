@@ -3,34 +3,34 @@ import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
 import Footer from '../../components/Footer';
 import api from '../../services/api.js';
-import './Members.scss';
+import '../Members/Members.scss';
 
-const Members = () => {
+const DeletedMembers = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [members, setMembers] = useState(null);
+  const [oldMembers, setOldMembers] = useState(null);
 
   const toggle = () => {
     setIsOpen(!isOpen);
   };
 
   const fetchmembers = async () => {
-    const response = await api.get('/members');
+    // cambiar por get para miembros antiguos
+    const response = await api.get('/removed-members');
     const membersFetched = response.data;
     console.log(response);
-    setMembers(membersFetched);
+    setOldMembers(membersFetched);
   };
 
   useEffect(() => {
     fetchmembers();
   }, []);
 
-  // use this function on delete member button
-  const removeMember = async (memberId, name) => {
+  const restoreMember = async (memberId, name) => {
     const confirmation = window.confirm(
-      `¿Estás seguro que deseas eliminar al alumno ${name}?`
+      `¿Estás seguro que deseas reintegrar al alumno ${name}?`
     );
-    if (confirmation == true) {
-      const response = await api.delete(`/members/${memberId}`);
+    if (confirmation === true) {
+      const response = await api.delete(`/removed-members/${memberId}`);
       console.log(response.data.message);
       alert(response.data.message);
       window.location.reload();
@@ -43,7 +43,7 @@ const Members = () => {
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
       <div className='members-container'>
-        <h2>Miembros</h2>
+        <h2>Antiguos Miembros</h2>
         <table className='table-data'>
           <tr>
             <th scope='col'>Nombre</th>
@@ -52,10 +52,10 @@ const Members = () => {
             </th>
             <th scope='col'>Generación</th>
             <th scope='col'>Carrera</th>
-            <th scope='col'>Eliminar</th>
+            <th scope='col'>Reintegrar</th>
           </tr>
-          {members ? (
-            members.map((member) => (
+          {oldMembers ? (
+            oldMembers.map((member) => (
               <tr key={member._id}>
                 <td>
                   {member.name} {member.lastNames}
@@ -64,12 +64,13 @@ const Members = () => {
                 <td>{member.gen}</td>
                 <td>{member.bachelor}</td>
                 <td>
-                  <button className='members-container__delete'
+                  <button
+                    className='members-container__delete'
                     onClick={() => {
-                      removeMember(member._id, member.name);
+                      restoreMember(member._id, member.name);
                     }}
                   >
-                    Eliminar 
+                    Reintegrar
                   </button>
                 </td>
               </tr>
@@ -84,4 +85,4 @@ const Members = () => {
   );
 };
 
-export default Members;
+export default DeletedMembers;

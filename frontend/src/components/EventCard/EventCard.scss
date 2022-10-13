@@ -59,9 +59,24 @@
     height: 152px;
   }
 
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.05);
-    transition: all 0.2s ease-in-out;
+  &__btn {
+    background-color: $normal-pink;
+    color: $off-white;
+    display: block;
+    font-family: $default-font;
+    font-size: 18px;
+    font-weight: 500;
+    border: 0;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin: 32px 0 16px;
+    margin-left: auto;
+    &:hover {
+      background-color: $off-white;
+      color: $normal-pink;
+      cursor: pointer;
+      transform: scale(1.15);
+      transition: all 0.2s ease-in-out;
+    }
   }
 }

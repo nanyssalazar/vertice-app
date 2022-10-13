@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard';
 import AdminEvents from './pages/Dashboard/adminEvents';
 import Events from './pages/Events';
 import Members from './pages/Members';
+import DeletedMembers from './pages/DeletedMembers';
 import NewEvent from './pages/NewEvent';
 import Attendance from './pages/Attendance';
 import Perfil from './pages/Perfil';
@@ -27,6 +28,7 @@ export const AppRoutes = () => {
           element={<Attendance />}
         />
         <Route path='/dashboard/miembros' element={<Members />} />
+        <Route path='/dashboard/miembros-eliminados' element={<DeletedMembers />} />
         <Route path='/dashboard/nuevo-evento' element={<NewEvent />} />
         <Route path='/register/:eventId' element={<Register />} />
       </Routes>

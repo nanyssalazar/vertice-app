@@ -37,7 +37,8 @@ const Navbar = ({ toggle }) => {
               </li>
               <li>
                 <a href="/dashboard/solicitudes">Solicitudes</a>
-              </li>  <li>
+              </li>{" "}
+              <li>
                 <a href="/dashboard/eventos">Asistencias</a>
               </li>
               <li>
@@ -45,6 +46,9 @@ const Navbar = ({ toggle }) => {
               </li>
               <li>
                 <a href="/dashboard/miembros">Miembros</a>
+              </li>{" "}
+              <li>
+                <a href="/dashboard/miembros-eliminados">Antiguos Miembros</a>
               </li>
             </>
           ) : (

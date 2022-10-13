@@ -1,4 +1,5 @@
 const Member = require('../models/Member');
+const RemovedMember = require('../models/RemovedMember');
 
 module.exports = {
   async getAllMembers(req, res) {
@@ -63,6 +64,23 @@ module.exports = {
         return res.json({ message: 'Alumno es miembro.', member: member });
       }
     }
+  },
+  async removeMember(req, res) {
+    const memberId = req.params.id;
+    Member.findById(memberId).then((member) => {
+      console.log(member);
+      RemovedMember.insertMany([member]).catch((error) => {
+        console.log(error);
+      });
+      Member.deleteOne({ _id: memberId })
+        .then((d) => {
+          console.log('Alumno eliminado');
+          return res.json({ message: 'Alumno eliminado.' });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
   },
   //getMembersByGen
   //editMember
