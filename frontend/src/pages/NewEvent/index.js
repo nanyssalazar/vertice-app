@@ -180,9 +180,26 @@ const NewEvent = () => {
             required
           >
             <option value=''>Seleccionar opción...</option>
+            <option value='Aula Virtual Ciencias de la Salud'>
+              Aula Virtual Ciencias de la Salud
+            </option>
+            <option value='Auditorio Jesus Rdz'>Auditorio Jesus Rdz</option>
             <option value='Gimnasio'>Gimnasio</option>
+            <option value='Salon Duela'>Salon Duela</option>
+            <option value='Salon Vinil'>Salon Vinil</option>
+            <option value='Explanada ciencias de la salud'>
+              Explanada ciencias de la salud
+            </option>
             <option value='Salon (por definir)'>Salon (por definir)</option>
-            <option value='Auditorio David Gómez'>Auditorio David Gómez</option>
+            <option value='Salon posgrado (por definir)'>
+              Salon posgrado (por definir)
+            </option>
+            <option value='Externo al Campus'>Externo al Campus</option>
+            <option value='Oficina Vértice'>Oficina Vértice</option>
+            <option value='Canchas techadas'>Canchas techadas</option>
+            <option value='Cancha futbol'>Cancha futbol</option>
+            <option value='Capilla Universitaria'>Capilla Universitaria</option>
+            <option value='Zoom'>Zoom</option>
           </select>
 
           <label htmlFor='event-type'>Tipo de Evento</label>
